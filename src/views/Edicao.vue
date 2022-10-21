@@ -10,8 +10,8 @@
                     <input type="text" class="form-control" placeholder="Morada" ref="morada" v-model="addUser.morada">
                 </div>
                 <div class=" d-flex flex-row justify-content-end gap-2 mt-4">
-                    <button type="reset" class="border border-white bg-danger rounded" @click="cancelar">Cancelar</button>
-                    <button type="submit" class="border border-white bg-info rounded">Guardar</button>
+                    <ButtonComp text="bg-danger" @click="cancelar">Cancelar</ButtonComp>
+                    <ButtonComp type="submit" text="bg-info">Guardar</ButtonComp>
                 </div>
             </form>
         </div>
@@ -23,6 +23,7 @@ import addUser from '../models/addUser';
 import H1Comp from '../components/widgets/h1Comp.vue';
 import { mapState } from 'pinia'
 import {contactStore} from '../store/contactStore';
+import ButtonComp from '../components/widgets/buttonComp.vue';
 export default {
     setup(){
         // initialize the store
@@ -52,7 +53,7 @@ export default {
             this.$router.push({ name: "Listagem" });
         }
     },
-    components: { H1Comp }
+    components: { H1Comp, ButtonComp }
 }
 </script>
 

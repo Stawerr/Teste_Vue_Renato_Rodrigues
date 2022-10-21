@@ -3,8 +3,9 @@
         <H1Comp text="Gestão de contactos"></H1Comp>
         <form @submit.prevent="editar($event)">
             <div class="d-flex flex-row justify-content-end align-items-end mt-4 gap-4">
-                <div><button class="border border-white bg-info rounded">Editar</button></div>
-                <div><button class="border border-white bg-danger rounded" @click="eliminar">Eliminar</button></div>
+
+                <div><ButtonComp text="bg-info">Editar</ButtonComp></div>
+                <div><ButtonComp text="bg-danger" @click="eliminar">Eliminar</ButtonComp></div>
             </div>
             <div class="border border-white d-flex my-3 p-4">
                 <div class="d-flex flex-column gap-4 pb-2 px-5 align-items-start">
@@ -23,6 +24,7 @@ import H1Comp from '../components/widgets/h1Comp.vue';
 import { mapState } from 'pinia';
 import {contactStore} from '../store/contactStore';
 import addUser from '../models/addUser';
+import ButtonComp from '../components/widgets/buttonComp.vue';
 export default {
     setup(){
         // initialize the store
@@ -55,7 +57,7 @@ export default {
                 this.$router.push({ name: "Listagem" });
         }
     },
-    components: { H1Comp }
+    components: { H1Comp, ButtonComp }
 }
 </script>
 
