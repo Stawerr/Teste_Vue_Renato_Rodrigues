@@ -3,7 +3,6 @@
         <H1Comp text="Gestão de contactos"></H1Comp>
         <form @submit.prevent="editar($event)">
             <div class="d-flex flex-row justify-content-end align-items-end mt-4 gap-4">
-
                 <div><ButtonComp text="bg-info">Editar</ButtonComp></div>
                 <div><ButtonComp text="bg-danger" @click="eliminar">Eliminar</ButtonComp></div>
             </div>
