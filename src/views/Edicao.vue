@@ -6,7 +6,7 @@
                 <div class="d-flex flex-column gap-4 pb-2 justify-content-start">
                     <input type="text" class="form-control" placeholder="Nome" ref="nome" v-model="addUser.nome">
                     <input type="number" class="form-control" placeholder="Número de Telemóvel" ref="telemovel" v-model="addUser.telemovel">
-                    <input type="text" class="form-control" placeholder="Email" ref="email" v-model="addUser.email">
+                    <input type="email" class="form-control" placeholder="Email" ref="email" v-model="addUser.email">
                     <input type="text" class="form-control" placeholder="Morada" ref="morada" v-model="addUser.morada">
                 </div>
                 <div class=" d-flex flex-row justify-content-end gap-2 mt-4">
@@ -41,17 +41,12 @@ export default {
     },
     methods: {
         onSubmitHandler(e){
-                if(this.addUser.id){
-                    this.contactStoreT.update(this.addUser)
-                }
-                else{
-                    if(this.addUser.nome=='' || this.addUser.telemovel==''|| this.addUser.email==''|| this.addUser.morada==''){
-                        alert("Não pode submeter utilizadores com campos vazios.");
-                    }else{
-                        this.contactStoreT.add(this.addUser)
-                        this.$router.push({ name: "Listagem" });
-                    }
-                }
+            if(this.addUser.nome=='' || this.addUser.telemovel==''|| this.addUser.email==''|| this.addUser.morada==''){
+                alert("Não pode submeter utilizadores com campos vazios.");
+            }else{
+                this.contactStoreT.add(this.addUser)
+                this.$router.push({ name: "Listagem" });
+            }  
         },
         cancelar() {
             this.$router.push({ name: "Listagem" });

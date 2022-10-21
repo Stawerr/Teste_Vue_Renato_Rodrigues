@@ -10,7 +10,7 @@
                 <div class="d-flex flex-column gap-4 pb-2 px-5 align-items-start">
                     <input type="text" class="form-control px-5" placeholder="Nome" ref="nome" v-model="$route.params.nome">
                     <input type="number" class="form-control" placeholder="Número de telemóvel" ref="telemovel" v-model="$route.params.telemovel">
-                    <input type="text" class="form-control" placeholder="Email" ref="email" v-model="$route.params.email">
+                    <input type="email" class="form-control" placeholder="Email" ref="email" v-model="$route.params.email">
                     <input type="text" class="form-control" placeholder="Morada" ref="morada" v-model="$route.params.morada">
                 </div>
             </div>
