@@ -24,8 +24,8 @@
 <script>
 import H1Comp from '../components/widgets/h1Comp.vue';
 import { mapState } from 'pinia';
-import {todoStore} from '../store/todoStore';
-import addTodo from '../models/addTodo';
+import {todoStore} from '../store/contactStore';
+import addTodo from '../models/addUser';
 export default {
     setup(){
         // initialize the store
