@@ -7,10 +7,10 @@
         <div class="border border-white d-flex flex-column my-3 p-4">
                 <div class="d-flex flex-row justify-content-between p-4 align-items-center" v-for="(item,i) in getContacts">
                     <div class="mx-5">
-                        <p>{{item.nome}}</p>
+                        <td><router-link :to="{name:'DetalheVista',params:{id:item.id, nome:item.nome, telemovel:item.telemovel, email:item.email, morada:item.morada}}">{{item.nome}}</router-link></td>
                     </div>
                     <div>
-                        <ButtonComp text="bg-info" @click="detalhe(item)">Ver</ButtonComp>
+                        <ButtonComp text="bg-info" @click="detalhe(item)">Editar</ButtonComp>
                     </div>
                 </div>
         </div>
