@@ -1,17 +1,17 @@
 <template>
     <div class="border border-white d-flex flex-column p-5">
-        <H1Comp text="Prática Laboratorial 8"></H1Comp>
+        <H1Comp text="Gestão de contactos"></H1Comp>
         <form @submit.prevent="editar($event)">
             <div class="d-flex flex-row justify-content-end align-items-end mt-4 gap-4">
                 <div><button class="border border-white bg-info rounded">Editar</button></div>
                 <div><button class="border border-white bg-danger rounded" @click="eliminar">Eliminar</button></div>
             </div>
             <div class="border border-white d-flex my-3 p-4">
-                <div class="d-flex flex-column align-items-start">
-                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.nome">
-                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.telemovel">
-                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.email">
-                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.morada">
+                <div class="d-flex flex-column gap-4 pb-2 px-5 align-items-start">
+                    <input type="text" class="form-control px-5" placeholder="Nome" ref="nome" v-model="$route.params.nome">
+                    <input type="number" class="form-control" placeholder="Número de telemóvel" ref="telemovel" v-model="$route.params.telemovel">
+                    <input type="text" class="form-control" placeholder="Email" ref="email" v-model="$route.params.email">
+                    <input type="text" class="form-control" placeholder="Morada" ref="morada" v-model="$route.params.morada">
                 </div>
             </div>
         </form>
@@ -43,8 +43,8 @@ export default {
                 email:this.$route.params.email,
                 morada:this.$route.params.morada
             }
-                if(this.user.nome==''){
-                    alert("O campo descrição não pode ser vazio.");
+                if(this.user.nome=='' ||this.user.telemovel=='' ||this.user.email=='' ||this.user.morada=='' ){
+                    alert("Não pode submeter com campos vazios.");
                 }else{
                     this.contactStoreT.update(this.user)
                     this.$router.push({ name: "Listagem" });
