@@ -45,7 +45,7 @@ export default {
                     this.contactStoreT.update(this.addUser)
                 }
                 else{
-                    if(this.addUser.nome=='' || this.addTodo.telemovel==''){
+                    if(this.addUser.nome=='' || this.addUser.telemovel==''){
                         alert("Não pode submeter Todos com campos vazios.");
                     }else{
                         this.contactStoreT.add(this.addUser)

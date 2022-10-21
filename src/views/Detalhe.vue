@@ -8,14 +8,11 @@
             </div>
             <div class="border border-white d-flex my-3 p-4">
                 <div class="d-flex flex-column align-items-start">
-                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.descricao">
-                    <div class=" d-flex flex-row mt-4 gap-2">
-                        <input class="" type="radio" id="one" name="radio" value="Por concluir" v-model="$route.params.estado" />
-                        <input class="" type="radio" id="two" name="radio" value="Concluido" v-model="$route.params.estado" />
-                    </div>
-                    <p>{{$route.params.data}}</p>
+                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.nome">
+                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.telemovel">
+                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.email">
+                    <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.morada">
                 </div>
-            
             </div>
         </form>
     </div>
@@ -24,40 +21,38 @@
 <script>
 import H1Comp from '../components/widgets/h1Comp.vue';
 import { mapState } from 'pinia';
-import {todoStore} from '../store/contactStore';
-import addTodo from '../models/addUser';
+import {contactStore} from '../store/contactStore';
+import addUser from '../models/addUser';
 export default {
     setup(){
         // initialize the store
-        const todoStoreT = todoStore()
-        return {todoStoreT}
+        const contactStoreT = contactStore();
+        return {contactStoreT} 
     },
     data() {
         return {
-            todo:{}
+            user:{}
         };
     },
     methods: {
         editar(){
-            this.todo={
+            this.user={
                 id:this.$route.params.id,
-                descricao:this.$route.params.descricao,
-                estado:this.$route.params.estado,
-                data:this.$route.params.data}
-                if(this.todo.descricao==''){
+                nome:this.$route.params.nome,
+                telemovel:this.$route.params.telemovel,
+                email:this.$route.params.email,
+                morada:this.$route.params.morada
+            }
+                if(this.user.nome==''){
                     alert("O campo descrição não pode ser vazio.");
                 }else{
-                    this.todoStoreT.update(this.todo)
+                    this.contactStoreT.update(this.user)
                     this.$router.push({ name: "Listagem" });
                 }
         },
         eliminar() {
-            if(this.$route.params.estado=="Por concluir"){
-                alert("O Todo não está concluido! Não é possivel apagar.");
-            }else{
-                this.todoStoreT.delete(this.$route.params.id)
+                this.contactStoreT.delete(this.$route.params.id)
                 this.$router.push({ name: "Listagem" });
-            }
         }
     },
     components: { H1Comp }
@@ -65,10 +60,5 @@ export default {
 </script>
 
 <style scoped>
-input[id="one"] {
-	accent-color: #DC3545;
-}
-input[id="two"] {
-	accent-color: #0DCAF0;
-}
+
 </style>
